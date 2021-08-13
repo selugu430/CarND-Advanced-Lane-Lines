@@ -491,7 +491,8 @@ Nevertheless, there is still some room for improvements in the ProcessImage clas
 Perform additional sanity checks to confirm that the detected lane lines are real:
 Checking that they have similar curvature,
 Checking that they are roughly parallel.
+
 Finally, the pipeline might fall in the following scenarios.
 
-When there is a divider or road patch parallel to the lane markings, because of the gradient threshold logic they get detected as lanes. And the histogram logic fails to detect the correct one as lane. If I remove the logic and use only LAB color scheme B channel and HLS L channel for the detection yellow and white lines the results are not great. Hence instead of simple histogram a better logic needed to differentiate the lanes vs other edge detections in the image.
-When road curves are deep, my curve fitting logic fails again because I am dependent on the histogram and fixed sliding window.
+  - When there is a divider or road patch parallel to the lane markings, because of the gradient threshold logic they get detected as lanes. And the histogram logic fails to detect the correct one as lane. If I remove the logic and use only LAB color scheme B channel and HLS L channel for the detection yellow and white lines the results are not great. Hence instead of simple histogram a better logic needed to differentiate the lanes vs other edge detections in the image.
+  - When road curves are deep, my curve fitting logic fails again because I am dependent on the histogram and fixed sliding window.
